@@ -1,32 +1,31 @@
 package com.comp3617.week1.assignment1
 
+import android.app.Activity
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var radioButton : RadioButton? = null;
-
     // Variables for score tracking
-    var answer : String? = ""
-    var score = 0
-    var qNumber = 0
-    var isCorrect = false
+    private var answer : String? = ""
+    private var score = 0
+    private var scoreRequest = 100
+    private var qNumber = 0
 
-    var questions : Array<String?>? = null
-    var questionNum : Array<String?>? = null
-    var q1_choices : Array<String?>? = null
-    var q2_choices : Array<String?>? = null
-    var q3_choices : Array<String?>? = null
-    var q4_choices : Array<String?>? = null
-    var q5_choices : Array<String?>? = null
-    var answers : Array<String?>? = null
+    private var questions : Array<String?>? = null
+    private var questionNum : Array<String?>? = null
+    private var q1_choices : Array<String?>? = null
+    private var q2_choices : Array<String?>? = null
+    private var q3_choices : Array<String?>? = null
+    private var q4_choices : Array<String?>? = null
+    private var q5_choices : Array<String?>? = null
+    private var answers : Array<String?>? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,16 +85,6 @@ class MainActivity : AppCompatActivity() {
             getString(R.string.q4_c),
             getString(R.string.q5_a)
         )
-
-        // variables to hold views/controls
-        val scoreText = findViewById<TextView>(R.id.scoreText)
-        val questionText = findViewById<TextView>(R.id.questionText)
-        val choice1 = findViewById<RadioButton>(R.id.choice1)
-        val choice2 = findViewById<RadioButton>(R.id.choice2)
-        val choice3 = findViewById<RadioButton>(R.id.choice3)
-        val choice4 = findViewById<RadioButton>(R.id.choice4)
-
-        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
 
     }
 
@@ -183,27 +172,53 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Retrieves correct answer for the question
-    private fun getRightAnswer(questionNumber : Int) : String? {
+    private fun getRightAnswer(questionNumber : Int) : String {
         var answer = answers!![questionNumber]
-        return answer;
+        return answer.toString()
     }
 
-    fun checkButton(v : View){
+    fun checkButton(v : View) : String{
         var radioId = radioGroup.checkedRadioButtonId
         var radioBtn : RadioButton = findViewById(radioId)
-        var text : String = radioBtn.text.toString()
+        var selection : String = radioBtn.text.toString()
 
-        Toast.makeText(this, "You chose: " + text, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "You chose: " + selection, Toast.LENGTH_LONG).show()
+        return selection
     }
 
     fun nextQuestion(v : View){
-        qNumber++
+        checkAnswer(v, qNumber)
+
         if (qNumber < 5) {
+            //checkAnswer(qNumber)
             getNextQuestion(qNumber)
         } else {
             // start Score Activity
+            startScoreActivity()
         }
     }
+
+    private fun startScoreActivity(){
+        val basicIntent = Intent(this, ScoreActivity::class.java)
+        basicIntent.putExtra("score", score)
+        startActivityForResult(basicIntent, scoreRequest)
+    }
+
+    fun checkAnswer(v : View, questionNumber: Int){
+        if (checkButton(v).compareTo(getRightAnswer(questionNumber)) == 0 ) {
+            updateScore()
+            Toast.makeText(this, "CORRECT!", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "Incorrect", Toast.LENGTH_LONG).show()
+        }
+        qNumber++
+    }
+
+    fun updateScore(){
+        score += 10
+        scoreValue.text = score.toString()
+    }
+
 
     // Replaces Questions and choices to be asked
     private fun getNextQuestion(questionNumber : Int) {
@@ -213,7 +228,22 @@ class MainActivity : AppCompatActivity() {
         choice2.text = getChoice2(questionNumber)
         choice3.text = getChoice3(questionNumber)
         choice4.text = getChoice4(questionNumber)
-
-        answer = getRightAnswer(questionNumber)
     }
+
+    fun startOver(v : View){
+        resetValues()
+    }
+
+    private fun resetValues(){
+        qNumber = 0
+        score = 0
+        scoreValue.text = score.toString()
+        question_title.text = getQuestionNum(0)
+        questionText.text = getQuestion(0)
+        choice1.text = getChoice1(0)
+        choice2.text = getChoice2(0)
+        choice3.text = getChoice3(0)
+        choice4.text = getChoice4(0)
+    }
+
 }

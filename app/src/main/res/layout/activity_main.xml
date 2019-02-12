@@ -3,13 +3,14 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:layout_marginBottom="40dp"
         >
 
         <TextView
@@ -24,13 +25,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/scoreStart"
+                android:textSize="20sp"
                 android:layout_alignParentRight="true"
-                android:id="@+id/scoreNumber"
+                android:id="@+id/scoreValue"
         />
     </RelativeLayout>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="50dp"
+              android:layout_height="wrap_content"
               android:text="@string/q1_t"
               android:textSize="20sp"
               android:padding="8dp"
@@ -38,7 +40,7 @@
     />
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="100dp"
+              android:layout_height="wrap_content"
               android:text="@string/q1_q"
               android:textSize="20sp"
               android:padding="8dp"
@@ -47,13 +49,12 @@
     />
 
 
-
     <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/radioGroup"
-
-    >
+            android:layout_marginBottom="10dp"
+            android:checkedButton="@+id/choice1">
         <RadioButton
                 android:id="@+id/choice1"
                 android:layout_width="fill_parent"
@@ -86,13 +87,29 @@
 
     </RadioGroup>
 
-    <Button
-            android:id="@+id/next_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:onClick="nextQuestion"
-    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/next_bn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start"
+                android:onClick="startOver"
+                android:layout_weight="1"
+            />
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:onClick="nextQuestion"
+                android:layout_weight="1"
+            />
+    </LinearLayout>
+
 
 
 </LinearLayout>
