@@ -4,42 +4,50 @@
     <string name="scoreText">Score</string>
     <string name="scoreStart">0</string>
 
+    <string-array name="answers">
+        <item>Amazing Fantasy #15</item>
+        <item>Spectacular Spider-Man</item>
+        <item>Iron Man</item>
+        <item>Gwen Stacy</item>
+        <item>Doctor Octopus</item>
+    </string-array>
 
-    <string name="q1_t">Question 1</string>
-    <string name="q1_q">What comic book did Spider-Man first appear in?</string>
-    <string name="q1_a">Amazing Fantasy #15</string> // answer
-    <string name="q1_b">Amazing Spider-Man #1</string>
-    <string name="q1_c">Action Comics #1</string>
-    <string name="q1_d">Marvel Tales #17</string>
+    <string name="q0t">Question 1</string>
+    <string name="q0">What comic book did Spider-Man first appear in?</string>
+    <string name="q0c0">Amazing Fantasy #15</string> // answer
+    <string name="q0c1">Amazing Spider-Man #1</string>
+    <string name="q0c2">Action Comics #1</string>
+    <string name="q0c3">Marvel Tales #17</string>
 
-    <string name="q2_t">Question 2</string>
-    <string name="q2_q">What was the first Spider-Man spin-off series?</string>
-    <string name="q2_a">Sensational Spider-Man</string>
-    <string name="q2_b">Marvel Team-Up</string>
-    <string name="q2_c">Spectacular Spider-Man</string> // answer
-    <string name="q2_d">Ultimate Spider-Man</string>
+    <string name="q1t">Question 2</string>
+    <string name="q1">What was the first Spider-Man spin-off series?</string>
+    <string name="q1c0">Sensational Spider-Man</string>
+    <string name="q1c1">Marvel Team-Up</string>
+    <string name="q1c2">Spectacular Spider-Man</string> // answer
+    <string name="q1c3">Ultimate Spider-Man</string>
 
-    <string name="q3_t">Question 3</string>
-    <string name="q3_q">Which superhero convinced Spider-Man to reveal his secret identity
-        to the public in Amazing Spider-Man #533?</string>
-    <string name="q3_a">Captain America</string>
-    <string name="q3_b">Daredevil</string>
-    <string name="q3_c">Mr. Fantastic</string>
-    <string name="q3_d">Iron Man</string> // answer
+    <string name="q2t">Question 3</string>
+    <string name="q2">Which superhero convinced Spider-Man to reveal his secret identity
+        to the publ2c in Amazing Spider-Man #533?</string>
+    <string name="q2c0">Captain America</string>
+    <string name="q2c1">Daredevil</string>
+    <string name="q2c2">Mr. Fantastic</string>
+    <string name="q2c3">Iron Man</string> // answer
 
-    <string name="q4_t">Question 4</string>
-    <string name="q4_q">Who was Spider-Man\'s first girlfriend?</string>
-    <string name="q4_a">Mary Jane Watson</string>
-    <string name="q4_b">Felicia Hardy</string>
-    <string name="q4_c">Gwen Stacy</string> // answer
-    <string name="q4_d">Betty Brant</string>
+    <string name="q3t">Question 4</string>
+    <string name="q3">Who was Spider-Man\'s first girlfriend?</string>
+    <string name="q3c0">Mary Jane Watson</string>
+    <string name="q3c1">Felicia Hardy</string>
+    <string name="q3c2">Gwen Stacy</string> // answer
+    <string name="q3c3">Betty Brant</string>
 
-    <string name="q5_t">Question 5</string>
-    <string name="q5_q">In The Superior Spider-man series, which super-villain replaced
-        Peter Parker as Spider-man?</string>
-    <string name="q5_a">Doctor Octopus</string> // answer
-    <string name="q5_b">Green Goblin</string>
-    <string name="q5_c">Mysterio</string>
-    <string name="q5_d">Kraven The Hunter</string>
+    <string name="q4t">Question 5</string>
+    <string name="q4">In The Superior Spider-man series, which super-villain replaced
+        Peter Parke4 as Spider-man?</string>
+    <string name="q4c0">Doctor Octopus</string> // answer
+    <string name="q4c1">Green Goblin</string>
+    <string name="q4c2">Mysterio</string>
+    <string name="q4c3">Kraven The Hunter</string>
+
 
 </resources>

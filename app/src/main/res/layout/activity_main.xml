@@ -33,7 +33,7 @@
 
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:text="@string/q1_t"
+              android:text="@string/q0t"
               android:textSize="20sp"
               android:padding="8dp"
               android:id="@+id/question_title"
@@ -41,7 +41,7 @@
 
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:text="@string/q1_q"
+              android:text="@string/q0"
               android:textSize="20sp"
               android:padding="8dp"
               android:layout_marginBottom="10dp"
@@ -59,28 +59,28 @@
                 android:id="@+id/choice1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/q1_a"
+                android:text="@string/q0c0"
                 android:textSize="18sp"
                 android:onClick="checkButton"/>
         <RadioButton
                 android:id="@+id/choice2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/q1_b"
+                android:text="@string/q0c1"
                 android:textSize="18sp"
                 android:onClick="checkButton"/>
         <RadioButton
                 android:id="@+id/choice3"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/q1_c"
+                android:text="@string/q0c2"
                 android:textSize="18sp"
                 android:onClick="checkButton"/>
         <RadioButton
                 android:id="@+id/choice4"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/q1_d"
+                android:text="@string/q0c3"
                 android:textSize="18sp"
                 android:onClick="checkButton"/>
 
