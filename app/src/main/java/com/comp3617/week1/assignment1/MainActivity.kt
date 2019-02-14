@@ -10,15 +10,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-
     private var score = 0
     private var scoreRequest = 100
     private var qNumber = 0
-    private var id : String = ""
-    private var titleId : String = ""
-    private var answers : Array<String?>? = null
+    private var id: String = ""
+    private var titleId: String = ""
+    private var answers: Array<String?>? = null
     private var totalNumQuestions = 0
-
+    private var selection = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +32,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Gets question number text
-    private fun getQuestion() : String? {
+    private fun getQuestion(): String? {
         var question = getString(resources.getIdentifier(id, "string", this.packageName))
         return question;
     }
 
     // Gets question number
-    private fun getQuestionNum(questionNumber : Int) : String? {
+    private fun getQuestionNum(questionNumber: Int): String? {
         setQuestionId(questionNumber)
         setTitleId(id)
         println("TITLE ID" + titleId)
@@ -48,23 +47,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Retrieves correct answer for the question
-    private fun getRightAnswer(questionNumber : Int) : String {
+    private fun getRightAnswer(questionNumber: Int): String {
         var answer = answers!![questionNumber]
         return answer.toString()
     }
 
     // Tells user what they chose and returns that selection as a string
-    fun checkButton(v : View) : String{
+    fun checkButton(v: View) {
         var radioId = radioGroup.checkedRadioButtonId
-        var radioBtn : RadioButton = findViewById(radioId)
-        var selection : String = radioBtn.text.toString()
+        var radioBtn: RadioButton = findViewById(radioId)
+        selection = radioBtn.text.toString()
 
-        Toast.makeText(this, "You chose: " + selection, Toast.LENGTH_LONG).show()
-        return selection
+        Toast.makeText(this, "You chose: " + selection, Toast.LENGTH_SHORT).show()
     }
 
     // Event-handler for "Next" Button
-    fun nextQuestion(v : View){
+    fun nextQuestion(v: View) {
         checkAnswer(v, qNumber)
         qNumber++
         if (qNumber < totalNumQuestions) {
@@ -75,35 +73,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Opens the Score Activity
-    private fun startScoreActivity(){
+    private fun startScoreActivity() {
         val basicIntent = Intent(this, ScoreActivity::class.java)
         basicIntent.putExtra("score", score)
         startActivityForResult(basicIntent, scoreRequest)
     }
 
     // Checks if answer chosen is correct.  Award points if correct
-    private fun checkAnswer(v : View, questionNumber: Int){
-        if (checkButton(v).compareTo(getRightAnswer(questionNumber)) == 0 ) {
+    private fun checkAnswer(v: View, questionNumber: Int) {
+        if (selection.compareTo(getRightAnswer(questionNumber)) == 0) {
             updateScore()
-            Toast.makeText(this, "CORRECT!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "CORRECT!", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Incorrect", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
         }
     }
 
     // Updates Score
-    private fun updateScore(){
+    private fun updateScore() {
         score += 10
         scoreValue.text = score.toString()
     }
 
     // Event-handler for "Start" button. Resets values
-    fun startOver(v : View){
+    fun startOver(v: View) {
         resetValues()
     }
 
     // Resets values to original state
-    private fun resetValues(){
+    private fun resetValues() {
         qNumber = 0
         score = 0
         setQuestionId(qNumber)
@@ -135,7 +133,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Sets Questions ID
-    private fun setQuestionId(questionNumber : Int) {
+    private fun setQuestionId(questionNumber: Int) {
         id = "q$questionNumber"
     }
 
@@ -150,12 +148,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Sets the Title ID
-    private fun setTitleId(qId : String?){
+    private fun setTitleId(qId: String?) {
         titleId = qId + "t"
     }
 
     // Updates choices
-    private fun updateChoices(id : String?){
+    private fun updateChoices(id: String?) {
         for (i in 0 until radioGroup.childCount) {
             var choice = id + "c" + i
             println(choice)

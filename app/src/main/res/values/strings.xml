@@ -28,7 +28,7 @@
 
     <string name="q2t">Question 3</string>
     <string name="q2">Which superhero convinced Spider-Man to reveal his secret identity
-        to the publ2c in Amazing Spider-Man #533?</string>
+        to the public in Amazing Spider-Man #533?</string>
     <string name="q2c0">Captain America</string>
     <string name="q2c1">Daredevil</string>
     <string name="q2c2">Mr. Fantastic</string>
@@ -43,11 +43,17 @@
 
     <string name="q4t">Question 5</string>
     <string name="q4">In The Superior Spider-man series, which super-villain replaced
-        Peter Parke4 as Spider-man?</string>
+        Peter Parker as Spider-man?</string>
     <string name="q4c0">Doctor Octopus</string> // answer
     <string name="q4c1">Green Goblin</string>
     <string name="q4c2">Mysterio</string>
     <string name="q4c3">Kraven The Hunter</string>
 
+    <string name="pct0">You need to brush up on your Spider-facts...</string>
+    <string name="pct20">You can do better than that...</string>
+    <string name="pct40">Not great, but not bad.</string>
+    <string name="pct60">Nice! You know more than the average Marvel fan!</string>
+    <string name="pct80">Spectacular! Almost perfect!</string>
+    <string name="pct100">AMAZING! You are a true Spider-fan!</string>
 
 </resources>

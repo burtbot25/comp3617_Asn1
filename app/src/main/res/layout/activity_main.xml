@@ -1,115 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingRight="16dp"
+>
+    <ScrollView android:id="@+id/ScrollViewID"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+            >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        >
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/scoreText"
+                        android:textSize="20sp"
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/scoreText"
+                />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/scoreStart"
+                        android:textSize="20sp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/scoreValue"
+                />
+            </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/scoreText"
-            android:textSize="20sp"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/scoreText"
-        />
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/scoreStart"
-                android:textSize="20sp"
-                android:layout_alignParentRight="true"
-                android:id="@+id/scoreValue"
-        />
-    </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="50dp"
+                           android:src="@drawable/spidey_head"
+                           android:id="@+id/spidey_head"
+                />
 
-    <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/q0t"
-              android:textSize="20sp"
-              android:padding="8dp"
-              android:id="@+id/question_title"
-    />
+            </RelativeLayout>
 
-    <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/q0"
-              android:textSize="20sp"
-              android:padding="8dp"
-              android:layout_marginBottom="10dp"
-              android:id="@+id/questionText"
-    />
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@string/q0t"
+                      android:textSize="25dp"
+                      android:padding="8dp"
+                      android:id="@+id/question_title"
+                      android:textStyle="bold"
+                      android:textColor="@color/Black"
+            />
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@string/q0"
+                      android:textSize="20sp"
+                      android:padding="8dp"
+                      android:layout_marginBottom="10dp"
+                      android:id="@+id/questionText"
+                      android:textStyle="italic"
+            />
 
 
-    <RadioGroup
+            <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioGroup"
+                    android:layout_marginBottom="10dp"
+                    android:checkedButton="@+id/choice1">
+                <RadioButton
+                        android:id="@+id/choice1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/q0c0"
+                        android:textSize="18sp"
+                        android:onClick="checkButton"/>
+                <RadioButton
+                        android:id="@+id/choice2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/q0c1"
+                        android:textSize="18sp"
+                        android:onClick="checkButton"/>
+                <RadioButton
+                        android:id="@+id/choice3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/q0c2"
+                        android:textSize="18sp"
+                        android:onClick="checkButton"/>
+                <RadioButton
+                        android:id="@+id/choice4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/q0c3"
+                        android:textSize="18sp"
+                        android:onClick="checkButton"/>
+
+
+            </RadioGroup>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <Button
+                        android:id="@+id/next_bn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start"
+                        android:onClick="startOver"
+                        android:layout_weight="1"
+                />
+
+                <Button
+                        android:id="@+id/next_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Next"
+                        android:onClick="nextQuestion"
+                        android:layout_weight="1"
+                />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/radioGroup"
-            android:layout_marginBottom="10dp"
-            android:checkedButton="@+id/choice1">
-        <RadioButton
-                android:id="@+id/choice1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/q0c0"
-                android:textSize="18sp"
-                android:onClick="checkButton"/>
-        <RadioButton
-                android:id="@+id/choice2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/q0c1"
-                android:textSize="18sp"
-                android:onClick="checkButton"/>
-        <RadioButton
-                android:id="@+id/choice3"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/q0c2"
-                android:textSize="18sp"
-                android:onClick="checkButton"/>
-        <RadioButton
-                android:id="@+id/choice4"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/q0c3"
-                android:textSize="18sp"
-                android:onClick="checkButton"/>
-
-
-    </RadioGroup>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/next_bn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Start"
-                android:onClick="startOver"
-                android:layout_weight="1"
-            />
-
-            <Button
-                android:id="@+id/next_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Next"
-                android:onClick="nextQuestion"
-                android:layout_weight="1"
-            />
-    </LinearLayout>
-
-
-
+            android:src="@drawable/spidey_jump"
+            android:id="@+id/spidey_pose"
+    />
 </LinearLayout>
