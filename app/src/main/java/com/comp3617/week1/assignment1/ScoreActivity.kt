@@ -36,6 +36,7 @@ class ScoreActivity : AppCompatActivity() {
     }
 
     // Determines result text and corresponding image based on User's score
+    // Each score range will generate a specific message and image
     private fun determineResult() {
         if (scorePct == 0.0) {
             imageView.setImageResource(R.drawable.spidey_no_more)

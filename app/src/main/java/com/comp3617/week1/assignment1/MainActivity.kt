@@ -97,6 +97,15 @@ class MainActivity : AppCompatActivity() {
 
     // Event-handler for "Start" button. Resets values
     fun startOver(v: View) {
+        radioGroup.visibility = View.VISIBLE
+        question_title.visibility = View.VISIBLE
+        next_btn.visibility = View.VISIBLE
+        scoreText.visibility = View.VISIBLE
+        scoreValue.visibility = View.VISIBLE
+        spidey_pose.visibility = View.VISIBLE
+        questionText.visibility = View.VISIBLE
+        spidey_intro.visibility = View.GONE
+        introText.visibility = View.GONE
         resetValues()
     }
 

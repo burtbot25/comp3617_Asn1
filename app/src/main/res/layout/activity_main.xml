@@ -28,6 +28,7 @@
                         android:textSize="20sp"
                         android:layout_alignParentLeft="true"
                         android:id="@+id/scoreText"
+                        android:visibility="gone"
                 />
                 <TextView
                         android:layout_width="wrap_content"
@@ -36,6 +37,7 @@
                         android:textSize="20sp"
                         android:layout_alignParentRight="true"
                         android:id="@+id/scoreValue"
+                        android:visibility="gone"
                 />
             </RelativeLayout>
 
@@ -56,8 +58,18 @@
                       android:id="@+id/question_title"
                       android:textStyle="bold"
                       android:textColor="@color/Black"
+                      android:visibility="gone"
             />
 
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@string/introText"
+                      android:textSize="20sp"
+                      android:padding="8dp"
+                      android:layout_marginBottom="10dp"
+                      android:id="@+id/introText"
+                      android:textStyle="italic"
+            />
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:text="@string/q0"
@@ -66,6 +78,7 @@
                       android:layout_marginBottom="10dp"
                       android:id="@+id/questionText"
                       android:textStyle="italic"
+                      android:visibility="gone"
             />
 
 
@@ -74,7 +87,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/radioGroup"
                     android:layout_marginBottom="10dp"
-                    android:checkedButton="@+id/choice1">
+                    android:checkedButton="@+id/choice1"
+                    android:visibility="gone"
+            >
                 <RadioButton
                         android:id="@+id/choice1"
                         android:layout_width="fill_parent"
@@ -106,7 +121,12 @@
 
 
             </RadioGroup>
-
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/spidey"
+                    android:id="@+id/spidey_intro"
+            />
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -127,6 +147,7 @@
                         android:text="Next"
                         android:onClick="nextQuestion"
                         android:layout_weight="1"
+                        android:visibility="gone"
                 />
             </LinearLayout>
 
@@ -137,5 +158,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/spidey_jump"
             android:id="@+id/spidey_pose"
+            android:visibility="gone"
     />
+
 </LinearLayout>
