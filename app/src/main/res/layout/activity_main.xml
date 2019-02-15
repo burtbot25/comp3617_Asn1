@@ -121,12 +121,7 @@
 
 
             </RadioGroup>
-            <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/spidey"
-                    android:id="@+id/spidey_intro"
-            />
+
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -159,6 +154,12 @@
             android:src="@drawable/spidey_jump"
             android:id="@+id/spidey_pose"
             android:visibility="gone"
+    />
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/spidey"
+            android:id="@+id/spidey_intro"
     />
 
 </LinearLayout>
