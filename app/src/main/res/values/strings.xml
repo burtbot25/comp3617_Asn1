@@ -3,9 +3,13 @@
 
     <string name="introText">Greetings, true believer! Do you think you know
         Spider-man? Hit Start and find out!</string>
+    <string name="correct">CORRECT!</string>
+    <string name="incorrect">incorrect</string>
 
     <string name="scoreText">Score</string>
     <string name="scoreStart">0</string>
+    <string name="makeSelection">Please select an answer!</string>
+    <string name="restart">Restart</string>
 
     <string-array name="answers">
         <item>Amazing Fantasy #15</item>
@@ -17,8 +21,8 @@
 
     <string name="q0t">Question 1</string>
     <string name="q0">What comic book did Spider-Man first appear in?</string>
-    <string name="q0c0">Amazing Spider-Man #1</string>
-    <string name="q0c1">Amazing Fantasy #15</string>// answer
+    <string name="q0c0">Amazing Fantasy #15</string> // answer
+    <string name="q0c1">Amazing Spider-Man #1</string>
     <string name="q0c2">Action Comics #1</string>
     <string name="q0c3">Marvel Tales #17</string>
 

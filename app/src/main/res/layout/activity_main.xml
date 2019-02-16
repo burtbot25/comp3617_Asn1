@@ -87,7 +87,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/radioGroup"
                     android:layout_marginBottom="10dp"
-                    android:checkedButton="@+id/choice1"
                     android:visibility="gone"
             >
                 <RadioButton
@@ -127,7 +126,7 @@
                     android:layout_height="wrap_content">
 
                 <Button
-                        android:id="@+id/next_bn"
+                        android:id="@+id/start_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Start"

@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private var answers: Array<String?>? = null
     private var totalNumQuestions = 0
     private var selection = ""
+    private var quizStarted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,14 +63,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Event-handler for "Next" Button
+    // If a selection is made, evaluate it and update accordingly, if not notify user
     fun nextQuestion(v: View) {
-        checkAnswer(v, qNumber)
-        qNumber++
-        if (qNumber < totalNumQuestions) {
-            updateQuestion(qNumber)
+
+        if (radioGroup.checkedRadioButtonId != -1) {
+            checkAnswer(v, qNumber)
+            qNumber++
+            if (qNumber < totalNumQuestions) {
+                updateQuestion(qNumber)
+            } else {
+                startScoreActivity()
+            }
         } else {
-            startScoreActivity()
+            Toast.makeText(
+                this,
+                getString(resources.getIdentifier("makeSelection", "string", this.packageName))
+                , Toast.LENGTH_SHORT
+            ).show()
         }
+
+        radioGroup.clearCheck()
+
     }
 
     // Opens the Score Activity
@@ -80,12 +94,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Checks if answer chosen is correct.  Award points if correct
+    // Provides feedback on answer selected
     private fun checkAnswer(v: View, questionNumber: Int) {
         if (selection.compareTo(getRightAnswer(questionNumber)) == 0) {
             updateScore()
-            Toast.makeText(this, "CORRECT!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(resources.getIdentifier("correct", "string", this.packageName))
+                , Toast.LENGTH_SHORT
+            ).show()
         } else {
-            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(resources.getIdentifier("incorrect", "string", this.packageName))
+                , Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -95,8 +118,10 @@ class MainActivity : AppCompatActivity() {
         scoreValue.text = score.toString()
     }
 
-    // Event-handler for "Start" button. Resets values
+    // Event-handler for "Start" button. Resets values and sets visibility settings
     fun startOver(v: View) {
+        quizStarted = true
+        start_btn.text = getString(resources.getIdentifier("restart", "string", this.packageName))
         radioGroup.visibility = View.VISIBLE
         question_title.visibility = View.VISIBLE
         next_btn.visibility = View.VISIBLE
@@ -126,6 +151,7 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle?) {
         outState!!.putInt("score", score)
         outState!!.putInt("qNumber", qNumber)
+        outState!!.putBoolean("quizStarted", quizStarted)
         super.onSaveInstanceState(outState)
     }
 
@@ -134,11 +160,26 @@ class MainActivity : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
         score = savedInstanceState!!.getInt("score", 0)
         qNumber = savedInstanceState!!.getInt("qNumber", 0)
+        quizStarted = savedInstanceState!!.getBoolean("quizStarted", false)
 
         scoreValue.text = score.toString()
         question_title.text = getQuestionNum(qNumber)
         questionText.text = getQuestion()
         updateChoices(id)
+
+
+        if (quizStarted) {
+            start_btn.text = getString(resources.getIdentifier("restart", "string", this.packageName))
+            radioGroup.visibility = View.VISIBLE
+            question_title.visibility = View.VISIBLE
+            next_btn.visibility = View.VISIBLE
+            scoreText.visibility = View.VISIBLE
+            scoreValue.visibility = View.VISIBLE
+            spidey_pose.visibility = View.VISIBLE
+            questionText.visibility = View.VISIBLE
+            spidey_intro.visibility = View.GONE
+            introText.visibility = View.GONE
+        }
     }
 
     // Sets Questions ID

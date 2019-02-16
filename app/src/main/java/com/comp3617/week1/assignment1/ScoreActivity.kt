@@ -65,6 +65,7 @@ class ScoreActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    // Start the Share activity
     fun share(v: View) {
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
